@@ -1,0 +1,19 @@
+variable "cidr_block" {
+  type = string
+}
+
+variable "azs" {
+  type = list(string)
+}
+
+variable "public_subnet_cidr_blocks" {
+  type = list(string)
+}
+
+variable "private_subnet_cidr_blocks" {
+  type = list(string)
+}
+
+variable "project" {
+  type = string
+}
