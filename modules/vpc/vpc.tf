@@ -91,3 +91,23 @@ resource "aws_route_table_association" "private-us-east-1a" {
   subnet_id      = aws_subnet.private[count.index].id
   route_table_id = aws_route_table.private.id
 }
+
+resource "aws_security_group" "eks_sg" {
+  vpc_id = aws_vpc.vpc.id
+  name        = "ss-eks-sg"
+  description = "EKS Security Group"
+
+  egress {
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+  }
+
+  ingress {
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+  }
+}
